@@ -13,4 +13,5 @@ class Solution:
                 elif list1[i] == list2[j] and mn == i + j:
                     res.append(list1[i])
                     mn = i + j
+                    
         return res
