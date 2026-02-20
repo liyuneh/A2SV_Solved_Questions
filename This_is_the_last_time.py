@@ -26,9 +26,6 @@ def solve():
     for l , r, re in ans:
         if l <= k :
             k = max(k , re)
-        else:
-            print(mx)
-            return 
         mx = max(mx, k)
     print(mx)
     
