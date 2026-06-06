@@ -1,0 +1,37 @@
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.util.StringTokenizer
+
+val br = BufferedReader(InputStreamReader(System.`in`))
+
+fun number() = br.readLine().trim().toInt()
+fun numbers(): List<Int> {
+    val st = StringTokenizer(br.readLine().trim())
+    return List(st.countTokens()) { st.nextToken().toInt() }
+}
+
+fun solve() {
+    val k = number()
+    var countA = 0
+    var countB = 0
+    var sumA = 0
+    var sumB = 0
+
+    repeat(2) {
+        val (a, b) = numbers()
+        if (a > b) countA++ else countB++
+        sumA += a
+        sumB += b
+    }
+
+    when {
+        sumA == sumB + k -> if (countA > countB) println("NO") else println("YES")
+        sumA > sumB + k  -> println("NO")
+        else             -> println("YES")
+    }
+}
+
+fun main() {
+    val t = number()
+    repeat(t) { solve() }
+}
